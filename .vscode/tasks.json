@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run",
+        "command": "C:\\processing-4.0b7-windows-x64\\processing-4.0b7\\processing-java.exe",
+        "type": "process",
+        "args": [
+          "--force",
+          "--sketch=${workspaceFolder}\\${relativeFileDirname}",
+          "--run"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "new"
+        }
+      }
+    ]
+}
