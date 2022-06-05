@@ -1,5 +1,5 @@
 void setup(){
-	size(1000, 100);
+	size(100, 100);
 	smooth();
 	noStroke();
     background(255);
@@ -16,7 +16,7 @@ void draw(){
         if((i % 2) == 0) r = r1;
         else r = r2;
         float theta = i * TWO_PI / 10 - HALF_PI + radians(j);
-        float x = r * cos(theta) + j;
+        float x = r * cos(theta) + width / 2;
         float y = r * sin(theta) + height / 2;
         vertex(x, y);
     }
