@@ -1,25 +1,21 @@
-void setup(){
-	size(1000, 100);
-	smooth();
-	noStroke();
-    background(255);
-	fill(152, 251, 152);
-	frameRate(150);
+void setup() {
+   size(1000, 200);
+   smooth();
+   noStroke();
+   frameRate(30); 
 }
 
-int r1 = 50, r2 = 20, r, j;
-
-void draw(){
+float theata = 0,dtheata = 1, x = 100, dx = 5, d = 200, t = 0;
+void draw() {
     background(255);
-    beginShape();
-    for(int i = 0; i < 10; i++){
-        if((i % 2) == 0) r = r1;
-        else r = r2;
-        float theta = i * TWO_PI / 10 - HALF_PI + radians(j);
-        float x = r * cos(theta) + j;
-        float y = r * sin(theta) + height / 2;
-        vertex(x, y);
-    }
-    endShape();
-    j += 1; 
+    fill(255, 255, 0);
+    arc(x, 100, d, d, radians(theata), 2*PI - radians(theata));
+    theata += dtheata;
+    x += dx;
+    if (theata > 30 || theata < 0) {
+        dtheata *= -1;
+    };
+    if (x > width - d/2 || x < d/2){
+        dx *= -1;
+    };
 }
