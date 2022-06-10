@@ -1,33 +1,30 @@
 void setup() {
-   size(300, 500);
+   size(1000, 200);
    smooth();
    noStroke();
-   fill(200, 255, 200);
-   ellipseMode(CORNER);
-   randomSeed(second());
    frameRate(30); 
 }
 
-int d = 20, x = int(random(width - d)), y = int(random(height -d)), vx = 10, vy = 10;
+float theata = 0,dtheata = 1, x = 100, dx = 5, d = 200, t = 0;
 void draw() {
     background(255);
-    ellipse(x, y, d, d);
-    x += vx;
-    y += vy;
-    if (x < 0 || x + d > width) {
-        vx *= -1;
-        if (x < 0) {
-            x *= -1;
-        }else if (x + d > width) {
-            x = 2 * (width - d) - x;
-        }
+    fill(255, 255, 0);
+    if (t == 0) {
+        arc(x, 100, d, d, radians(theata), 2*PI - radians(theata));
+    }else if (t == 1) {
+        arc(x, 100, d, d, - PI + radians(theata), PI - radians(theata));
     }
-    if (y < 0 || y + d > height) {
-        vy *= -1;
-        if (y < 0) {
-            y *= -1;
-        }else if (y + d > height) {
-            y = 2 * (height - d) - y;
+    theata += dtheata;
+    x += dx;
+    if (theata > 30 || theata < 0) {
+        dtheata *= -1;
+    };
+    if (x > width - d/2 || x < d/2){
+        dx *= -1;
+        if (t == 0) {
+            t = 1;
+        }else if (t == 1) {
+            t = 0;
         }
     }
 }
