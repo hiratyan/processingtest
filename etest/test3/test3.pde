@@ -1,4 +1,4 @@
-vvoid setup() {
+void setup() {
    size(300, 500);
    smooth();
    noStroke();
@@ -22,12 +22,10 @@ void draw() {
             x = 2 * (width - d) - x;
         }
     }
-    if (y < 0 || y + d > height) {
+    if (y < 0) {
         vy *= -1;
         if (y < 0) {
             y *= -1;
-        }else if (y + d > height) {
-            y = 2 * (height - d) - y;
         }
     }
 }
